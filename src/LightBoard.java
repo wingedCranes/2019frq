@@ -2,13 +2,21 @@ public class LightBoard {
     private boolean[][] lights;
 
     public LightBoard (int numRows, int numCol){
-
+        int chance = 0;
+       for (int a = 0; a < numRows; a++){
+           for (int b = 0; b < numCol; b++){
+            chance = (int)(Math.random() * 100 +0.1);
+            if (chance <= 40){
+                lights[a][b] = true;
+            }
+           }
+       }
     }
 
     public boolean evaluateLight (int row, int col){
         int count = 0;
        for (int i = 0; i < lights.length; i ++){
-           if (lights[row][col] == true){
+           if (lights[i][col] == true){
                count++;
            }
        }
